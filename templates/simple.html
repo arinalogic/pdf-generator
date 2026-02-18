@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чек {{ invoice_id }}</title>
+    <style>
+        body { font-family: 'DejaVu Sans', sans-serif; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #000; padding: 6px; }
+    </style>
+</head>
+<body>
+    <h3>Чек № {{ invoice_id }}</h3>
+    <table>
+        <tr><th>Товар</th><th>Цена</th><th>Кол-во</th></tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.product }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.qty }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

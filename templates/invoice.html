@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счёт {{ invoice_id }}</title>
+    <style>
+        body { font-family: 'DejaVu Sans', 'Liberation Sans', 'Arial', sans-serif; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        th { background: #f0f0f0; }
+        .invoice-id { font-size: 18px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="invoice-id">Счёт № {{ invoice_id }}</div>
+    <table>
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.product }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.qty }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
